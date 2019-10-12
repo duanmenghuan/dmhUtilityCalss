@@ -3,13 +3,15 @@ package com.bw.test;
 import java.util.Date;
 
 import com.bw.utility.DateUtility;
+import com.bw.utility.StringUtility;
 
 
 public class TestUtils {
 	public static void main(String[] args) {
-		Date date = new Date(100,0,6);
-		int age = DateUtility.calAge(date);
-		System.out.println(age);
+		String html = StringUtility.toHtml("张三\r\n李四\r王五");
+		System.out.println(html);
 	}
+	
+		
 
 }
