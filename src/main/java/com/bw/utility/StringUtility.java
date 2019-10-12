@@ -134,5 +134,19 @@ public class StringUtility {
 			boolean isMatch = m.matches();
 			return isMatch;
 		}
+		/**
+		 * 
+		 * @Title: toHtml
+		 * @Description: TODO(转换为HTML文本)
+		 * @param text
+		 * @return
+		 */
+		public static  String toHtml(String src){
+			String dst = src.replaceAll("\r\n","\n");
+			dst=dst.replaceAll("\n","</p><p>");
+			dst="<p>"+dst+"</p>";
+			dst=dst.replaceAll("\r","<br/>");
+			return dst;
+		}
 		
 }
