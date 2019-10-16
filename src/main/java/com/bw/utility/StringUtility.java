@@ -149,4 +149,29 @@ public class StringUtility {
 			return dst;
 		}
 		
+		 /**
+		  * 
+		  * @Title: isNumString
+		  * @Description: TODO(ÅÐ¶ÏÊÇ·ñÊÇÊý×Ö×Ö·û´®)
+		  * @param str
+		  * @return
+		  */
+		 public static boolean isNumber(String str){
+			 String reg = "^[0-9]+\\.?[0-9]*$";
+			return str.matches(reg);
+		 }
+		 /**
+		  * 
+		  * @Title: splitincision
+		  * @Description: TODO(×Ö·û´®ÇÐ¸î)
+		  * @param str
+		  * @param variable
+		  * @param i
+		  * @return
+		  */
+		 public static  String  splitincision(String str,String variable,int i){
+			 String[] split = str.split(variable);
+			return  split[i];
+		}
+		
 }
