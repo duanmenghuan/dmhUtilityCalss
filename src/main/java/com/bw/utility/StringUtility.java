@@ -1,5 +1,6 @@
 package com.bw.utility;
 
+import java.text.NumberFormat;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -172,6 +173,18 @@ public class StringUtility {
 		 public static  String  splitincision(String str,String variable,int i){
 			 String[] split = str.split(variable);
 			return  split[i];
+		}
+		 /**
+		  * 计算百分百
+		  * @return
+		  */
+		public static String  percentage(Integer onesum,Integer sum)
+		{
+			//创建一个数值格式化对象
+			NumberFormat numberFormat = NumberFormat.getInstance();
+			numberFormat.setMaximumFractionDigits(0);
+			String  result = numberFormat.format(((float)onesum/(float)sum)*100);
+			return result ;
 		}
 		
 }
