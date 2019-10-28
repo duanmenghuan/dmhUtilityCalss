@@ -1,5 +1,7 @@
 package com.bw.utility;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.NumberFormat;
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -8,7 +10,7 @@ import java.util.regex.Pattern;
 public class StringUtility {
 	
 	public static char arr[] = new char[36];
-	//³õÊ¼»¯Êı×é
+	//åˆå§‹åŒ–æ•°ç»„
 	static{
 		int index=0;
 		for (char i = 'a'; i < 'z'; i++) {
@@ -24,7 +26,7 @@ public class StringUtility {
 	 /**
 	  * 
 	  * @Title: isEmpty
-	  * @Description:ÅĞ¶ÏÎª¿Õ
+	  * @Description:åˆ¤æ–­ä¸ºç©º
 	  * @param str
 	  * @return
 	  */
@@ -36,7 +38,7 @@ public class StringUtility {
 	 /**
 	  * 
 	  * @Title: isvalue
-	  * @Description: TODO(ÅĞ¶ÏÊÇ·ñÓĞÖµ)
+	  * @Description: TODO(åˆ¤æ–­æ˜¯å¦æœ‰å€¼)
 	  * @param str
 	  * @return
 	  */
@@ -49,7 +51,7 @@ public class StringUtility {
 	 /**
 	  * 
 	  * @Title: randomChar
-	  * @Description: TODO(Ëæ»ú10Î»Ó¢ÎÄ×ÖÄ¸)
+	  * @Description: TODO(éšæœº10ä½è‹±æ–‡å­—æ¯)
 	  * @param n
 	  * @return
 	  */
@@ -68,7 +70,7 @@ public class StringUtility {
 	 /**
 	  * 
 	  * @Title: randomCharAndNumber
-	  * @Description: TODO(ËæÖ®Éú³ÉnÎ»  Ó¢ÎÄÊı×ÖËæ»ú×Ö·û´®)
+	  * @Description: TODO(éšä¹‹ç”Ÿæˆnä½  è‹±æ–‡æ•°å­—éšæœºå­—ç¬¦ä¸²)
 	  * @param n
 	  * @return
 	  */
@@ -84,7 +86,7 @@ public class StringUtility {
 	 /**
 	  * 
 	  * @Title: getFilename
-	  * @Description: TODO(»ñÈ¡Ò»¸öÎÄ¼şÃû³ÆµÄÀ©Õ¹Ãû ÁĞÈçpom.xml)
+	  * @Description: TODO(è·å–ä¸€ä¸ªæ–‡ä»¶åç§°çš„æ‰©å±•å åˆ—å¦‚pom.xml)
 	  * @param filename
 	  * @return
 	  */
@@ -98,7 +100,7 @@ public class StringUtility {
 	 /**
 	  * 
 	  * @Title: isNumString
-	  * @Description: TODO(ÅĞ¶ÏÊÇ·ñÊÇÊı×Ö×Ö·û´®)
+	  * @Description: TODO(åˆ¤æ–­æ˜¯å¦æ˜¯æ•°å­—å­—ç¬¦ä¸²)
 	  * @param str
 	  * @return
 	  */
@@ -110,7 +112,7 @@ public class StringUtility {
 	     /**
 	      * 
 	      * @Title: isEmail
-	      * @Description: TODO(ÑéÖ¤ÓÊÏä)
+	      * @Description: TODO(éªŒè¯é‚®ç®±)
 	      * @param str
 	      * @return
 	      */
@@ -123,7 +125,7 @@ public class StringUtility {
 		/**
 		 * 
 		 * @Title: isMobile
-		 * @Description: TODO(ÑéÖ¤Ò»¸ö×Ö·û´®ÊÇ·ñÎªÕıÈ·µç»°ºÅ)
+		 * @Description: TODO(éªŒè¯ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦ä¸ºæ­£ç¡®ç”µè¯å·)
 		 * @param mobile
 		 * @return
 		 */
@@ -138,7 +140,7 @@ public class StringUtility {
 		/**
 		 * 
 		 * @Title: toHtml
-		 * @Description: TODO(×ª»»ÎªHTMLÎÄ±¾)
+		 * @Description: TODO(è½¬æ¢ä¸ºHTMLæ–‡æœ¬)
 		 * @param text
 		 * @return
 		 */
@@ -153,7 +155,7 @@ public class StringUtility {
 		 /**
 		  * 
 		  * @Title: isNumString
-		  * @Description: TODO(ÅĞ¶ÏÊÇ·ñÊÇÊı×Ö×Ö·û´®)
+		  * @Description: TODO(åˆ¤æ–­æ˜¯å¦æ˜¯æ•°å­—å­—ç¬¦ä¸²)
 		  * @param str
 		  * @return
 		  */
@@ -164,7 +166,7 @@ public class StringUtility {
 		 /**
 		  * 
 		  * @Title: splitincision
-		  * @Description: TODO(×Ö·û´®ÇĞ¸î)
+		  * @Description: TODO(å­—ç¬¦ä¸²åˆ‡å‰²)
 		  * @param str
 		  * @param variable
 		  * @param i
@@ -175,16 +177,56 @@ public class StringUtility {
 			return  split[i];
 		}
 		 /**
-		  * ¼ÆËã°Ù·Ö°Ù
+		  * è®¡ç®—ç™¾åˆ†ç™¾
 		  * @return
 		  */
 		public static String  percentage(Integer onesum,Integer sum)
 		{
-			//´´½¨Ò»¸öÊıÖµ¸ñÊ½»¯¶ÔÏó
+			//åˆ›å»ºä¸€ä¸ªæ•°å€¼æ ¼å¼åŒ–å¯¹è±¡
 			NumberFormat numberFormat = NumberFormat.getInstance();
 			numberFormat.setMaximumFractionDigits(0);
 			String  result = numberFormat.format(((float)onesum/(float)sum)*100);
 			return result ;
 		}
-		
+
+
+	public static boolean isUrl(String str) {
+		//è½¬æ¢ä¸ºå°å†™
+		str = str.toLowerCase();
+		String regex = "^((https|http|ftp|rtsp|mms)?://)"  //httpsã€httpã€ftpã€rtspã€mms
+				+ "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" //ftpçš„user@
+				+ "(([0-9]{1,3}\\.){3}[0-9]{1,3}" // IPå½¢å¼çš„URL- ä¾‹å¦‚ï¼š199.194.52.184
+				+ "|" // å…è®¸IPå’ŒDOMAINï¼ˆåŸŸåï¼‰
+				+ "([0-9a-z_!~*'()-]+\\.)*" // åŸŸå- www.
+				+ "([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\\." // äºŒçº§åŸŸå
+				+ "[a-z]{2,6})" // first level domain- .com or .museum
+				+ "(:[0-9]{1,5})?" // ç«¯å£å·æœ€å¤§ä¸º65535,5ä½æ•°
+				+ "((/?)|" // a slash isn't required if there is no file name
+				+ "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)$";
+		return  str.matches(regex);
+	}
+
+
+
+	/*
+	 * æ–¹æ³•ï¼šç”Ÿæˆå”¯ä¸€æ ‡ç­¾åï¼Œå¤„ç†æ­¥éª¤ï¼š
+	 * 1ã€å…¨éƒ¨å˜æˆå°å†™ï¼›
+	 * 2ã€æ¸…ç©ºä¸¤è¾¹çš„ç©ºæ ¼ï¼ŒæŠŠä¸­é—´æ‰€æœ‰çš„ç©ºæ ¼æ›¿æ¢æˆâ€œ-â€ï¼›
+	 * 3ã€ä½¿ç”¨URLEncoder.encode()ç¼–ç 
+	 * æœ€åè¿”å›å¤„ç†çš„ç»“æœã€‚
+	 * ä¸¾ä¾‹â€œSpring MVCâ€å¤„ç†åä¸ºâ€œspring-mvcâ€ï¼Œâ€œSpring Mvcâ€å¤„ç†åä¹Ÿä¸ºâ€œspring-mvcâ€
+	 */
+	public static String toUniqueTerm(String term) throws UnsupportedEncodingException {
+		//TODO å®ç°ä»£ç 
+		term=term.toLowerCase();
+		term=term.trim();
+		term = term.replaceAll(" ", "-");
+		return URLEncoder.encode(term,"UTF-8");
+
+	}
+
+
+
+
+
 }
